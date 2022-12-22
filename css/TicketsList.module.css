@@ -1,0 +1,78 @@
+.ticket {
+  background-color: #ffffff;
+  border: 1px solid #dfe5ec;
+  border-radius: 10px;
+  padding: 1em;
+  font-family: "Open Sans";
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+  margin: 0 10px;
+}
+.ticket__essentials {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.ticket__essentials__price {
+  color: #2196f3;
+  font-weight: 900;
+  font-size: 24px;
+}
+.ticket__data {
+  display: flex;
+  margin: 14px 5px;
+}
+.ticket__data__flight {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  margin-right: 10px;
+}
+.ticket__data__flight__path {
+  color: #a0b0b9;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 2px 0;
+}
+.ticket__data__flight__time {
+  color: #4a4a4a;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 2px 0;
+}
+.ticket__data__duration {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  margin-right: 10px;
+}
+.ticket__data__duration__inscription {
+  color: #a0b0b9;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 2px 0;
+}
+.ticket__data__duration__length {
+  color: #4a4a4a;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 2px 0;
+}
+.ticket__data__transit {
+  display: flex;
+  flex-direction: column;
+  min-width: 120px;
+  margin-right: 10px;
+}
+.ticket__data__transit__count {
+  color: #a0b0b9;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 2px 0;
+}
+.ticket__data__transit__location {
+  color: #4a4a4a;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 2px 0;
+}

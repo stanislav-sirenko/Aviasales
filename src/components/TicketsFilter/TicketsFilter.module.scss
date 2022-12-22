@@ -1,0 +1,38 @@
+.filter {
+  background: #ffffff;
+  font-size: 12px;
+  color: #4a4a4a;
+  border: 1px solid #dfe5ec;
+  border-radius: 10px;
+  display: inline-block;
+  overflow: hidden;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
+  margin: 10px;
+  &__label {
+    cursor: pointer;
+    display: inline-block;
+    &__input[type='radio'] {
+      display: none;
+    }
+    &__title {
+      font-family: 'Open Sans';
+      font-weight: bold;
+      display: inline-block;
+      cursor: pointer;
+      padding: 0px 15px;
+      line-height: 35px;
+      border-right: none;
+      user-select: none;
+      transition: 0.7s;
+      &:hover {
+        background-color: #f1fcff;
+        transition: 0.7s;
+        opacity: 1;
+      }
+    }
+    &__input[type='radio']:checked + &__title {
+      background: #2196f3;
+      color: #ffffff;
+    }
+  }
+}
