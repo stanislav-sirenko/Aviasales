@@ -6,7 +6,13 @@ const TicketsFilter = () => {
   return (
     <div className={classes.filter}>
       <label className={classes.filter__label}>
-        <input type="radio" value="Самый дешевый" name="choice" className={classes.filter__label__input} />
+        <input
+          type="radio"
+          defaultChecked
+          value="Самый дешевый"
+          name="choice"
+          className={classes.filter__label__input}
+        />
         <span className={classes.filter__label__title}>САМЫЙ ДЕШЕВЫЙ</span>
       </label>
       <label className={classes.filter__label}>
