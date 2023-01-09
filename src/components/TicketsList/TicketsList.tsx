@@ -1,45 +1,145 @@
-import React from 'react'
-
-import S7 from '../../images/S7-Logo.svg'
+import TicketCard from '../TicketCard/TicketCard'
+import { useAppSelector, useAppDispatch } from '../../hook'
+import { showMoreTickets } from '../../redux/ticket-slice'
+import NoTicketsFound from '../NoTicketsFound/NoTicketsFound'
 
 import classes from './TicketsList.module.scss'
 
-const TicketsList = () => {
+// const TicketsList: React.FC = () => {
+//   interface Ticket {
+//     price: number
+//     carrier: string
+//     segments: [
+//       {
+//         origin: string
+//         destination: string
+//         date: string
+//         stops: string[]
+//         duration: number
+//       },
+//       {
+//         origin: string
+//         destination: string
+//         date: string
+//         stops: string[]
+//         duration: number
+//       }
+//     ]
+//   }
+
+//   const dispatch = useAppDispatch()
+//   const { tickets, showTickets, all, nonStop, oneStop, twoStop, threeStop } = useAppSelector((state) => state.tickets)
+//   // const showFiveTickets = useAppSelector((state) => state.tickets.showTickets)
+//   const getFilterTicket = (
+//     tickets: Ticket[],
+//     all: boolean,
+//     nonStop: boolean,
+//     oneStop: boolean,
+//     twoStop: boolean,
+//     threeStop: boolean
+//   ) => {
+//     return tickets.filter((ticket: { segments: { stops: string[] }[] }) => {
+//       if (all) return ticket
+//       if (nonStop && (!ticket.segments[0].stops.length || !ticket.segments[1].stops.length)) return true
+//       if (oneStop && (ticket.segments[0].stops.length === 1 || ticket.segments[1].stops.length === 1)) return true
+//       if (twoStop && (ticket.segments[0].stops.length === 2 || ticket.segments[1].stops.length === 2)) return true
+//       if (threeStop && (ticket.segments[0].stops.length === 3 || ticket.segments[1].stops.length === 3)) return true
+//       return false
+//     })
+//   }
+// getFilterTicket(tickets, all, nonStop, oneStop, twoStop, threeStop)
+// const showedTickets = tickets.slice(0, showTickets)
+// const allTickets = showedTickets.map((ticket, index: number) => {
+//   // console.log(ticket)
+//   return (
+//     <TicketCard
+//       key={index}
+//       price={ticket.price}
+//       imgCode={ticket.carrier}
+//       forward={ticket.segments[0]}
+//       backward={ticket.segments[1]}
+//     />
+//   )
+// })
+// return (
+//   <>
+//     {allTickets}
+//     <button className={classes['show-more']} onClick={() => dispatch(showMoreTickets())}>
+//       Показать еще 5 билетов!
+//     </button>
+//   </>
+// )
+// }
+
+const TicketsList: React.FC = () => {
+  interface Ticket {
+    price: number
+    carrier: string
+    segments: [
+      {
+        origin: string
+        destination: string
+        date: string
+        stops: string[]
+        duration: number
+      },
+      {
+        origin: string
+        destination: string
+        date: string
+        stops: string[]
+        duration: number
+      }
+    ]
+  }
+
+  const { tickets, showTickets, all, nonStop, oneStop, twoStop, threeStop } = useAppSelector((state) => state.tickets)
+  const dispatch = useAppDispatch()
+  const getCheckAllOff = !all && !nonStop && !oneStop && !twoStop && !threeStop
+
+  const getFilterTicket = (
+    tickets: Ticket[],
+    all: boolean,
+    nonStop: boolean,
+    oneStop: boolean,
+    twoStop: boolean,
+    threeStop: boolean
+  ) => {
+    return tickets.filter((ticket: { segments: { stops: string[] }[] }) => {
+      all && ticket
+      if (nonStop && (!ticket.segments[0].stops.length || !ticket.segments[1].stops.length)) return true
+      if (oneStop && (ticket.segments[0].stops.length === 1 || ticket.segments[1].stops.length === 1)) return true
+      if (twoStop && (ticket.segments[0].stops.length === 2 || ticket.segments[1].stops.length === 2)) return true
+      if (threeStop && (ticket.segments[0].stops.length === 3 || ticket.segments[1].stops.length === 3)) return true
+      return false
+    })
+  }
+
   return (
-    <div className={classes.ticket}>
-      <div className={classes.ticket__essentials}>
-        <span className={classes.ticket__essentials__price}>13 400 ₽</span>
-        <img className={classes.ticket__essentials__logo} src={S7} alt="logo" />
-      </div>
-      <div className={classes.ticket__data}>
-        <div className={classes.ticket__data__flight}>
-          <span className={classes.ticket__data__flight__path}>MOW - HKT</span>
-          <span className={classes.ticket__data__flight__time}>10:45 - 08:00</span>
-        </div>
-        <div className={classes.ticket__data__duration}>
-          <span className={classes.ticket__data__duration__inscription}>В ПУТИ</span>
-          <span className={classes.ticket__data__duration__length}>21ч 15м</span>
-        </div>
-        <div className={classes.ticket__data__transit}>
-          <span className={classes.ticket__data__transit__count}>2 ПЕРЕСАДКИ</span>
-          <span className={classes.ticket__data__transit__location}>HKG, JNB</span>
-        </div>
-      </div>
-      <div className={classes.ticket__data}>
-        <div className={classes.ticket__data__flight}>
-          <span className={classes.ticket__data__flight__path}>MOW - HKT</span>
-          <span className={classes.ticket__data__flight__time}>11:20 - 00:50</span>
-        </div>
-        <div className={classes.ticket__data__duration}>
-          <span className={classes.ticket__data__duration__inscription}>В ПУТИ</span>
-          <span className={classes.ticket__data__duration__length}>13ч 30м</span>
-        </div>
-        <div className={classes.ticket__data__transit}>
-          <span className={classes.ticket__data__transit__count}>2 ПЕРЕСАДКИ</span>
-          <span className={classes.ticket__data__transit__location}>HKG</span>
-        </div>
-      </div>
-    </div>
+    <>
+      {getCheckAllOff ? (
+        <NoTicketsFound />
+      ) : (
+        getFilterTicket(tickets, all, nonStop, oneStop, twoStop, threeStop)
+          .slice(0, showTickets)
+          .map((ticket, index) => {
+            return (
+              <TicketCard
+                key={index}
+                price={ticket.price}
+                imgCode={ticket.carrier}
+                forward={ticket.segments[0]}
+                backward={ticket.segments[1]}
+              />
+            )
+          })
+      )}
+      {getFilterTicket(tickets, all, nonStop, oneStop, twoStop, threeStop).length >= 5 && (
+        <button className={classes['show-more']} onClick={() => dispatch(showMoreTickets())}>
+          Показать еще 5 билетов!
+        </button>
+      )}
+    </>
   )
 }
 

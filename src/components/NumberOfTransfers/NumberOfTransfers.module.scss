@@ -8,6 +8,9 @@
   flex-direction: column;
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.3);
   margin: 10px;
+  max-height: 230px;
+  position: fixed;
+  left: 190px;
   &__title {
     font-size: 12px;
     align-self: center;
@@ -16,6 +19,8 @@
   &__group {
     display: flex;
     flex-direction: column;
+  }
+  @media (max-width: 840px) {
   }
   &__label {
     padding: 10px;
@@ -34,5 +39,44 @@
     &__title {
       margin-left: 10px;
     }
+  }
+}
+
+@media (min-width: 1500px) {
+  .transfers-count {
+    left: 190px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .transfers-count {
+    left: 90px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .transfers-count {
+    left: 10px;
+  }
+}
+
+@media (max-width: 840px) {
+  .transfers-count {
+    position: relative;
+    width: 70%;
+    &__group {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.transfers-count {
+  &__group {
+    display: flex;
+    // flex-direction: ;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }

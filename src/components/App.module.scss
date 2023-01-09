@@ -28,6 +28,14 @@ body {
   min-width: 70%;
 }
 
+@media (max-width: 840px) {
+  .wrapper {
+    flex-direction: column;
+    min-width: 70%;
+    align-items: center;
+  }
+}
+
 .content {
   display: flex;
   flex-direction: column;
