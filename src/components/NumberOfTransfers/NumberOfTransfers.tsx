@@ -5,12 +5,7 @@ import classes from './NumberOfTransfers.module.scss'
 
 const NumberOfTransfers = () => {
   const dispatch = useAppDispatch()
-  // const { checkboxGroup } = useAppSelector((state) => state.tickets)
   const { all, nonStop, oneStop, twoStop, threeStop } = useAppSelector((state) => state.tickets)
-
-  // const handleCheckbox = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   dispatch(allChecked(event))
-  // }
   return (
     <div className={classes['transfers-count']}>
       <h2 className={classes['transfers-count__title']}>КОЛИЧЕСТВО ПЕРЕСАДОК</h2>

@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from '../../hook'
-import { selectedRadioBtn111 } from '../../redux/ticket-slice'
+import { getSelectedRadioBtn } from '../../redux/ticket-slice'
 
 import classes from './TicketsFilter.module.scss'
 
@@ -16,7 +16,7 @@ const TicketsFilter: React.FC = () => {
           checked={isActiveButtonFilter === 'radio1'}
           name="choice"
           className={classes.filter__label__input}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => dispatch(selectedRadioBtn111(event.target.value))}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => dispatch(getSelectedRadioBtn(event.target.value))}
         />
         <span className={classes.filter__label__title}>САМЫЙ ДЕШЕВЫЙ</span>
       </label>
@@ -27,7 +27,7 @@ const TicketsFilter: React.FC = () => {
           checked={isActiveButtonFilter === 'radio2'}
           name="choice"
           className={classes.filter__label__input}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => dispatch(selectedRadioBtn111(event.target.value))}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => dispatch(getSelectedRadioBtn(event.target.value))}
         />
         <span className={classes.filter__label__title}>САМЫЙ БЫСТРЫЙ</span>
       </label>
@@ -38,7 +38,7 @@ const TicketsFilter: React.FC = () => {
           checked={isActiveButtonFilter === 'radio3'}
           name="choice"
           className={classes.filter__label__input}
-          onChange={(event: React.ChangeEvent<HTMLInputElement>) => dispatch(selectedRadioBtn111(event.target.value))}
+          onChange={(event: React.ChangeEvent<HTMLInputElement>) => dispatch(getSelectedRadioBtn(event.target.value))}
         />
         <span className={classes.filter__label__title}>ОПТИМАЛЬНЫЙ</span>
       </label>

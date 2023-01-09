@@ -82,7 +82,7 @@ const ticketSlice = createSlice({
     showMoreTickets(state) {
       state.showTickets += 5
     },
-    selectedRadioBtn111(state, action) {
+    getSelectedRadioBtn(state, action) {
       state.isActiveButtonFilter = action.payload
       if (state.isActiveButtonFilter === 'radio1')
         state.tickets.sort((ticket1: Ticket, ticket2: Ticket) => ticket1.price - ticket2.price)
@@ -169,7 +169,7 @@ const ticketSlice = createSlice({
 
 export const {
   showMoreTickets,
-  selectedRadioBtn111,
+  getSelectedRadioBtn,
   allChecked,
   nonStopChecked,
   oneStopChecked,
