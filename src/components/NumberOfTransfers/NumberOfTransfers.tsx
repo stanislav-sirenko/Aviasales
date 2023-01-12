@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '../../hook'
-import { allChecked, nonStopChecked, oneStopChecked, twoStopChecked, threeStopChecked } from '../../redux/ticket-slice'
+import { useAppDispatch, useAppSelector } from '../../assets/hooks/hooksByTS'
+import { allChecked, nonStopChecked, oneStopChecked, twoStopChecked, threeStopChecked } from '../../store/ticket-slice'
 
 import classes from './NumberOfTransfers.module.scss'
 

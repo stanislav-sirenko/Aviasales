@@ -1,6 +1,6 @@
 import { minutesToHours, minutesToMilliseconds, format } from 'date-fns'
 
-import { ICardInfoTicket } from '../../types'
+import { ICardInfoTicket } from '../../interfaces/card-ticket'
 
 import classes from './TicketCard.module.scss'
 

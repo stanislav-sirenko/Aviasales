@@ -1,5 +1,5 @@
-import { useAppDispatch, useAppSelector } from '../../hook'
-import { getSelectedRadioBtn } from '../../redux/ticket-slice'
+import { useAppDispatch, useAppSelector } from '../../assets/hooks/hooksByTS'
+import { getSelectedRadioBtn } from '../../store/ticket-slice'
 
 import classes from './TicketsFilter.module.scss'
 

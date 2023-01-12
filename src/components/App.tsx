@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 
-import { useAppDispatch, useAppSelector } from '../hook'
-import { fetchSearchId, fetchTickets } from '../redux/ticket-slice'
-import logo from '../images/logo.png'
+import { useAppDispatch, useAppSelector } from '../assets/hooks/hooksByTS'
+import { fetchSearchId, fetchTickets } from '../store/ticket-slice'
+import logo from '../assets/images/logo.png'
 
 import classes from './App.module.scss'
 import NumberOfTransfers from './NumberOfTransfers/NumberOfTransfers'
